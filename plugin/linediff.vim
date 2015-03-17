@@ -32,8 +32,8 @@ function! s:Init()
   endif
 endfunction
 
-command! -range Linediff call s:Linediff(<line1>, <line2>)
-function! s:Linediff(from, to)
+command! -range LD call s:LD(<line1>, <line2>)
+function! s:LD(from, to)
   call s:Init()
 
   if s:differ_one.IsBlank()
@@ -44,7 +44,7 @@ function! s:Linediff(from, to)
     call s:PerformDiff()
   else
     call s:LinediffReset('!')
-    call s:Linediff(a:from, a:to)
+    call s:LD(a:from, a:to)
   endif
 endfunction
 
